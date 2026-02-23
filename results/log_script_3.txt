@@ -1,0 +1,139 @@
+==============================================================================
+   ENSEMBLE BIOMASSA — SCRIPT 3 EMS-SPATIAL v3.0 (LO-MRO Benchmark)
+==============================================================================
+   [XGB] GPU detectada via nvidia-smi: NVIDIA GeForce RTX 3060 → device='cuda'
+
+📥 Consumindo outputs do Script 2 v2.5...
+   best_global_method: QAOA_Simulado_k6
+   features (k=6): ['canopy_height', 'clay_pct', 'NDVI_seca', 'NDWI_seca', 'NDVI_RE_seca', 'HV_dB']
+   hash: 0c38ec0f34aefdd4
+   grid_blocks do Script 2: nx=4, ny=3
+   lomro_predictions_raw.csv: 290 linhas, colunas=['macro_region', 'y_true', 'y_pred']
+
+📂 Carregando dados (veg-only)...
+   Base veg: n=290 | y̅=44.2 ± 36.2 Mg/ha
+
+🧱 Criando GRID blocks contíguos para CV...
+   -> Grid: nx=4, ny=3 | blocos: {0: 28, 1: 7, 2: 15, 3: 4, 4: 16, 5: 21, 6: 39, 7: 17, 9: 16, 10: 49, 11: 78}
+
+🌍 Criando macro-regiões contíguas (LO-MRO)...
+   -> Macro grid: nx=5, ny=1 | regiões: {0: 34, 1: 39, 2: 44, 3: 127, 4: 46}
+
+📦 Carregando subsets do JSON (mesma lógica do Script 2)...
+   Subsets carregados: 6
+   - QAOA_Simulado_k6: k=6 | hash=0c38ec0f34aefdd4
+   - Exact_Enumerated_QUBO_k7: k=7 | hash=57145cdddd6d1892
+   - Genetic_Algorithm_k6: k=6 | hash=0c38ec0f34aefdd4
+   - Simulated_Annealing_k7: k=7 | hash=57145cdddd6d1892
+   - RF_topK_k12: k=12 | hash=c6849d081c094f19
+   - ET_topK_k11: k=11 | hash=39d2d3951b50de42
+
+==============================================================================
+🔒 LO-MRO BENCHMARK — RF direto (FINAL_MODEL='RF', igual ao Script 2)
+   Baseline: QAOA_Simulado_k6 | k=6
+   Benchmark: 6 subsets
+==============================================================================
+
+──────────────────────────────────────────────────────────────────────────────
+🔥 HOLDOUT macro=0 | blind=34 | train=256
+   [BASELINE QAOA_Simulado_k6] R²=0.6418 | RMSE=18.97 | Bias=+1.22 | Slope=0.699
+   ✅ Baseline coerente com Script 2 (ΔRMSE=0.000 Mg/ha)
+
+   Benchmark holdout=0 (ordenado por ΔRMSE):
+   Método                                 k    ΔRMSE   Wilcox-p CI95%
+   Exact_Enumerated_QUBO_k7               7    +0.23     0.8264 [-0.4,+0.7]
+   Genetic_Algorithm_k6                   6    +0.24     0.8926 [-0.3,+1.1]
+   Simulated_Annealing_k7                 7    +0.39     0.8395 [-0.1,+0.9]
+   RF_topK_k12                           12    +1.18     0.9328 [-0.7,+4.0]
+   ET_topK_k11                           11    +1.73     0.7484 [-0.7,+5.7]
+
+──────────────────────────────────────────────────────────────────────────────
+🔥 HOLDOUT macro=1 | blind=39 | train=251
+   [BASELINE QAOA_Simulado_k6] R²=0.5369 | RMSE=21.33 | Bias=-0.78 | Slope=0.522
+   ✅ Baseline coerente com Script 2 (ΔRMSE=0.000 Mg/ha)
+
+   Benchmark holdout=1 (ordenado por ΔRMSE):
+   Método                                 k    ΔRMSE   Wilcox-p CI95%
+   Genetic_Algorithm_k6                   6    +0.26     0.0491 [-0.7,+0.9]
+   ET_topK_k11                           11    +0.57     0.7353 [-0.7,+1.8]
+   RF_topK_k12                           12    +0.71     0.4185 [-0.3,+2.1]
+   Exact_Enumerated_QUBO_k7               7    +1.24     0.0155 [+0.2,+3.0]
+   Simulated_Annealing_k7                 7    +1.33     0.0008 [+0.5,+2.8]
+
+──────────────────────────────────────────────────────────────────────────────
+🔥 HOLDOUT macro=2 | blind=44 | train=246
+   [BASELINE QAOA_Simulado_k6] R²=0.2561 | RMSE=26.87 | Bias=-0.23 | Slope=0.565
+   ✅ Baseline coerente com Script 2 (ΔRMSE=0.000 Mg/ha)
+
+   Benchmark holdout=2 (ordenado por ΔRMSE):
+   Método                                 k    ΔRMSE   Wilcox-p CI95%
+   ET_topK_k11                           11    -1.45     0.5670 [-4.0,+0.9]
+   RF_topK_k12                           12    -1.31     0.6986 [-4.0,+1.0]
+   Simulated_Annealing_k7                 7    -0.28     0.1795 [-0.7,+0.0]
+   Genetic_Algorithm_k6                   6    -0.23     0.0657 [-0.6,+0.3]
+   Exact_Enumerated_QUBO_k7               7    -0.03     0.5749 [-0.7,+1.2]
+
+──────────────────────────────────────────────────────────────────────────────
+🔥 HOLDOUT macro=3 | blind=127 | train=163
+   [BASELINE QAOA_Simulado_k6] R²=0.7144 | RMSE=22.18 | Bias=-2.34 | Slope=0.615
+   ✅ Baseline coerente com Script 2 (ΔRMSE=0.000 Mg/ha)
+
+   Benchmark holdout=3 (ordenado por ΔRMSE):
+   Método                                 k    ΔRMSE   Wilcox-p CI95%
+   RF_topK_k12                           12    -1.63     0.0152 [-3.1,-0.0]
+   ET_topK_k11                           11    -1.32     0.0177 [-2.5,-0.0]
+   Exact_Enumerated_QUBO_k7               7    -0.31     0.8947 [-0.9,+0.1]
+   Simulated_Annealing_k7                 7    -0.30     0.9176 [-0.9,+0.3]
+   Genetic_Algorithm_k6                   6    -0.27     0.3631 [-0.7,+0.1]
+
+──────────────────────────────────────────────────────────────────────────────
+🔥 HOLDOUT macro=4 | blind=46 | train=244
+   [BASELINE QAOA_Simulado_k6] R²=0.6864 | RMSE=14.96 | Bias=+3.33 | Slope=0.670
+   ✅ Baseline coerente com Script 2 (ΔRMSE=0.000 Mg/ha)
+
+   Benchmark holdout=4 (ordenado por ΔRMSE):
+   Método                                 k    ΔRMSE   Wilcox-p CI95%
+   RF_topK_k12                           12    -0.77     0.1737 [-1.5,+0.4]
+   ET_topK_k11                           11    -0.54     0.2679 [-1.7,+0.5]
+   Genetic_Algorithm_k6                   6    -0.13     0.1297 [-0.6,+0.1]
+   Simulated_Annealing_k7                 7    +0.01     0.9224 [-1.0,+0.9]
+   Exact_Enumerated_QUBO_k7               7    +0.34     0.8711 [-0.4,+1.3]
+
+==============================================================================
+📊 CONSOLIDAÇÃO — Holm–Bonferroni + veredito global
+==============================================================================
+
+Baseline (QAOA_Simulado_k6) — LO-MRO ponderado por n_blind:
+  R²=0.6080 | RMSE=21.25 | MAE=16.23 | Bias=-0.49 | Slope=0.614
+
+==============================================================================
+🏁 RESUMO GLOBAL — ΔRMSE ponderado + CI bootstrap + veredito
+   Equivalence band: |ΔRMSE| ≤ 2.0 Mg/ha | Wilcoxon loss: |error| | α=0.05
+==============================================================================
+method                    k  delta_rmse_weighted  ci_low_95  ci_high_95 verdict     wins_delta_lt0  wins_sig_holm  n_holdouts
+             RF_topK_k12 12 -0.799943            -1.453521  0.520829    EQUIVALENT 3               0              5          
+             ET_topK_k11 11 -0.604265            -1.257158  0.715122    EQUIVALENT 3               0              5          
+    Genetic_Algorithm_k6  6 -0.112371            -0.245795  0.157257    EQUIVALENT 3               0              5          
+  Simulated_Annealing_k7  7  0.052584            -0.259064  0.799255    EQUIVALENT 2               0              5          
+Exact_Enumerated_QUBO_k7  7  0.108102            -0.217821  0.777704    EQUIVALENT 2               0              5          
+
+📊 Gerando figuras...
+   ✅ fig_lomro_scatter_baseline.png
+   ✅ fig_delta_rmse_per_holdout.png
+   ✅ fig_delta_rmse_summary.png
+   ✅ fig_heatmap_delta_rmse.png
+
+==============================================================================
+CONCLUÍDO — SCRIPT 3 EMS-SPATIAL v3.0
+==============================================================================
+Script 2 dir:     /mnt/e/PROJETOS/biomassa_quantum/results/ensemble_nestedcv_subsets_ems_spatial_v2_5
+Output dir:       /mnt/e/PROJETOS/biomassa_quantum/results/script3_lomro_benchmark_v3_0
+CSV baseline:     /mnt/e/PROJETOS/biomassa_quantum/results/script3_lomro_benchmark_v3_0/lomro_baseline_metrics.csv
+CSV benchmark:    /mnt/e/PROJETOS/biomassa_quantum/results/script3_lomro_benchmark_v3_0/lomro_benchmark_all.csv
+CSV summary:      /mnt/e/PROJETOS/biomassa_quantum/results/script3_lomro_benchmark_v3_0/lomro_benchmark_summary.csv
+Figures dir:      /mnt/e/PROJETOS/biomassa_quantum/results/script3_lomro_benchmark_v3_0/figures
+  fig_lomro_scatter_baseline.png    (obs vs pred baseline por macro-região)
+  fig_delta_rmse_per_holdout.png   (ΔRMSE por método por holdout)
+  fig_delta_rmse_summary.png       (ΔRMSE global + CI bootstrap)
+  fig_heatmap_delta_rmse.png       (heatmap método × holdout)
+==============================================================================

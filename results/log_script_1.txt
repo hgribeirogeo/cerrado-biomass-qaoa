@@ -1,0 +1,352 @@
+============================================================================================
+ 🌿 QAOA BIOMASSA — MEGA-VARREDURA GLOBAL JUSTA (k=4..12) — v2.0 EMS-READY
+============================================================================================
+
+📊 Carregando e processando dados (veg-only + coords + firewall)...
+
+⚠️ Colunas suspeitas presentes no CSV (NÃO usadas aqui):
+   - Biomassa_M
+   - bio_Mg_h_1
+   - bio_Mg_ha_
+   - dap_medio_
+   - ht_media_1
+   - n_arvore_1
+   - n_arvore_2
+   - n_arvores_
+   - Biomassa_Mg_ha
+
+   -> UAs válidas  : 290 | y̅=44.2 ± 36.2 Mg/ha
+   -> Allowlist existentes no CSV: 21
+   -> Feature pool final (exógeno + firewall): 21
+
+✅ FEATURE_NAMES (n=15): ['canopy_height', 'canopy_height_sd', 'clay_pct', 'elevation', 'slope', 'NDVI_seca', 'NDWI_seca', 'NBR_seca', 'EVI_seca', 'NDVI_RE_seca', 'HV_dB', 'VV_dB', 'VH_dB', 'B8_seca', 'mapbiomas_2018']
+
+🧱 GRID blocks (CV) contíguos (GroupKFold):
+   -> nx=4, ny=3, total=12
+   -> Blocos: {0: 28, 1: 7, 2: 15, 3: 4, 4: 16, 5: 22, 6: 38, 7: 17, 9: 17, 10: 48, 11: 78}
+
+📋 Feature diagnostics (pré-varredura) salvo: /mnt/e/PROJETOS/biomassa_quantum/results/qaoa_ibm_real/script1_feature_diagnostics.csv
+         feature  RF_importance  ET_importance  corr_target_abs  marginal_r2
+   canopy_height       0.505056       0.345557         0.792407     0.403908
+       NDWI_seca       0.106942       0.119884         0.688355     0.177117
+    NDVI_RE_seca       0.067270       0.117108         0.663036     0.302686
+       NDVI_seca       0.053696       0.097944         0.663036     0.313910
+        NBR_seca       0.032590       0.059031         0.638554     0.164973
+           HV_dB       0.032264       0.035416         0.356233     0.000000
+         B8_seca       0.029875       0.027979         0.204781     0.000000
+  mapbiomas_2018       0.029799       0.024983         0.237442     0.110198
+        clay_pct       0.027507       0.030261         0.003157     0.000000
+        EVI_seca       0.022784       0.037007         0.562707     0.009223
+       elevation       0.022062       0.023903         0.040847     0.000000
+           slope       0.018805       0.019590         0.017781     0.000000
+canopy_height_sd       0.018529       0.021415         0.229429     0.000000
+           VH_dB       0.018430       0.020934         0.438415     0.000000
+           VV_dB       0.014389       0.018988         0.369389     0.000000
+
+============================================================================================
+🚀 Iniciando/Retomando varredura k=4..12 (todos competem na MESMA QUBO)
+============================================================================================
+
+============================================================================================
+ 🎯 ALVO DE CARDINALIDADE (soft): K = 4
+============================================================================================
+ 📐 QUBO gerada (penalty_lambda=0.010000) | scale=1.000 | best_size=4 | exact_hit=True
+ 🏆 Exact_Enumerated: R²=0.5557 | size=4 | hash=7652510104c58dd3
+ 🔥 SA: R²=0.5635 | size=4 | hash=7652510104c58dd3
+ 🧬 GA: R²=0.5725 | size=4 | hash=7652510104c58dd3
+ ⚛️ QAOA (DE, warm-starts: RF/ET/Exact) ...
+   ws=RF: R²=0.5647 | size=4 | cost=-1.4293 | depth=34
+   ws=ET: R²=0.5647 | size=4 | cost=-1.4293 | depth=34
+   ws=Exact: R²=0.5647 | size=4 | cost=-1.4293 | depth=34
+ ⚛️ QAOA best: R²=0.5647 | size=4 | cost=-1.4293 | R²_std=0.0000
+ 🔍 LANDSCAPE k=4: gap_abs=0.0500 | unique_minimum | heuristics: converged_all_heuristics
+    Jaccard Exact_Enumerated_QUBO_vs_Simulated_Annealing: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_Genetic_Algorithm: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_RF_topK: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_ET_topK: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_QAOA_Simulado: 1.000
+    Jaccard Simulated_Annealing_vs_QAOA_Simulado: 1.000
+    Jaccard Genetic_Algorithm_vs_QAOA_Simulado: 1.000
+    Jaccard RF_topK_vs_QAOA_Simulado: 1.000
+    Jaccard ET_topK_vs_QAOA_Simulado: 1.000
+ ✅ K=4 concluído e salvo em checkpoint | tempo=6.8 min
+
+============================================================================================
+ 🎯 ALVO DE CARDINALIDADE (soft): K = 5
+============================================================================================
+ 📐 QUBO gerada (penalty_lambda=0.005000) | scale=1.000 | best_size=5 | exact_hit=True
+ 🏆 Exact_Enumerated: R²=0.6223 | size=5 | hash=4385a1ecc2b8cea5
+ 🔥 SA: R²=0.6217 | size=5 | hash=4385a1ecc2b8cea5
+ 🧬 GA: R²=0.6158 | size=5 | hash=4385a1ecc2b8cea5
+ ⚛️ QAOA (DE, warm-starts: RF/ET/Exact) ...
+   ws=RF: R²=0.6184 | size=5 | cost=-1.4010 | depth=34
+   ws=ET: R²=0.6184 | size=5 | cost=-1.4010 | depth=34
+   ws=Exact: R²=0.6184 | size=5 | cost=-1.4010 | depth=34
+ ⚛️ QAOA best: R²=0.6184 | size=5 | cost=-1.4010 | R²_std=0.0000
+ 🔍 LANDSCAPE k=5: gap_abs=0.0066 | near_degenerate | heuristics: converged_all_heuristics
+    Jaccard Exact_Enumerated_QUBO_vs_Simulated_Annealing: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_Genetic_Algorithm: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_RF_topK: 0.667
+    Jaccard Exact_Enumerated_QUBO_vs_ET_topK: 0.667
+    Jaccard Exact_Enumerated_QUBO_vs_QAOA_Simulado: 1.000
+    Jaccard Simulated_Annealing_vs_QAOA_Simulado: 1.000
+    Jaccard Genetic_Algorithm_vs_QAOA_Simulado: 1.000
+    Jaccard RF_topK_vs_QAOA_Simulado: 0.667
+    Jaccard ET_topK_vs_QAOA_Simulado: 0.667
+ ✅ K=5 concluído e salvo em checkpoint | tempo=7.2 min
+
+============================================================================================
+ 🎯 ALVO DE CARDINALIDADE (soft): K = 6
+============================================================================================
+ 📐 QUBO gerada (penalty_lambda=0.015000) | scale=1.000 | best_size=6 | exact_hit=True
+ 🏆 Exact_Enumerated: R²=0.6449 | size=6 | hash=56a13247b18b50b8
+ 🔥 SA: R²=0.6526 | size=6 | hash=56a13247b18b50b8
+ 🧬 GA: R²=0.6597 | size=6 | hash=56a13247b18b50b8
+ ⚛️ QAOA (DE, warm-starts: RF/ET/Exact) ...
+   ws=RF: R²=0.6573 | size=6 | cost=-1.8059 | depth=34
+   ws=ET: R²=0.6114 | size=5 | cost=-1.8010 | depth=34
+   ws=Exact: R²=0.6573 | size=6 | cost=-1.8059 | depth=34
+ ⚛️ QAOA best: R²=0.6573 | size=6 | cost=-1.8059 | R²_std=0.0265
+ 🔍 LANDSCAPE k=6: gap_abs=0.0063 | near_degenerate | heuristics: converged_all_heuristics
+    Jaccard Exact_Enumerated_QUBO_vs_Simulated_Annealing: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_Genetic_Algorithm: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_RF_topK: 0.714
+    Jaccard Exact_Enumerated_QUBO_vs_ET_topK: 0.500
+    Jaccard Exact_Enumerated_QUBO_vs_QAOA_Simulado: 1.000
+    Jaccard Simulated_Annealing_vs_QAOA_Simulado: 1.000
+    Jaccard Genetic_Algorithm_vs_QAOA_Simulado: 1.000
+    Jaccard RF_topK_vs_QAOA_Simulado: 0.714
+    Jaccard ET_topK_vs_QAOA_Simulado: 0.500
+ ✅ K=6 concluído e salvo em checkpoint | tempo=6.3 min
+
+============================================================================================
+ 🎯 ALVO DE CARDINALIDADE (soft): K = 7
+============================================================================================
+ 📐 QUBO gerada (penalty_lambda=0.040000) | scale=1.199 | best_size=7 | exact_hit=True
+ 🏆 Exact_Enumerated: R²=0.6519 | size=7 | hash=b7b5b8cb3cb0204b
+ 🔥 SA: R²=0.6532 | size=7 | hash=b7b5b8cb3cb0204b
+ 🧬 GA: R²=0.6474 | size=7 | hash=b7b5b8cb3cb0204b
+ ⚛️ QAOA (DE, warm-starts: RF/ET/Exact) ...
+   ws=RF: R²=0.6531 | size=6 | cost=-3.1859 | depth=34
+   ws=ET: R²=0.6353 | size=7 | cost=-3.1869 | depth=34
+   ws=Exact: R²=0.6353 | size=7 | cost=-3.1869 | depth=34
+ ⚛️ QAOA best: R²=0.6353 | size=7 | cost=-3.1869 | R²_std=0.0103
+ 🔍 LANDSCAPE k=7: gap_abs=0.0108 | unique_minimum | heuristics: converged_all_heuristics
+    Jaccard Exact_Enumerated_QUBO_vs_Simulated_Annealing: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_Genetic_Algorithm: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_RF_topK: 0.556
+    Jaccard Exact_Enumerated_QUBO_vs_ET_topK: 0.556
+    Jaccard Exact_Enumerated_QUBO_vs_QAOA_Simulado: 1.000
+    Jaccard Simulated_Annealing_vs_QAOA_Simulado: 1.000
+    Jaccard Genetic_Algorithm_vs_QAOA_Simulado: 1.000
+    Jaccard RF_topK_vs_QAOA_Simulado: 0.556
+    Jaccard ET_topK_vs_QAOA_Simulado: 0.556
+ ✅ K=7 concluído e salvo em checkpoint | tempo=5.5 min
+
+============================================================================================
+ 🎯 ALVO DE CARDINALIDADE (soft): K = 8
+============================================================================================
+ 📐 QUBO gerada (penalty_lambda=0.100000) | scale=2.179 | best_size=8 | exact_hit=True
+ 🏆 Exact_Enumerated: R²=0.6417 | size=8 | hash=9c6b7e3e6fe5f160
+ 🔥 SA: R²=0.6476 | size=8 | hash=9c6b7e3e6fe5f160
+ 🧬 GA: R²=0.6491 | size=8 | hash=9c6b7e3e6fe5f160
+ ⚛️ QAOA (DE, warm-starts: RF/ET/Exact) ...
+   ws=RF: R²=0.6498 | size=8 | cost=-7.5293 | depth=34
+   ws=ET: R²=0.6473 | size=8 | cost=-7.5317 | depth=34
+   ws=Exact: R²=0.6473 | size=8 | cost=-7.5317 | depth=34
+ ⚛️ QAOA best: R²=0.6473 | size=8 | cost=-7.5317 | R²_std=0.0014
+ 🔍 LANDSCAPE k=8: gap_abs=0.0024 | near_degenerate | heuristics: converged_all_heuristics
+    Jaccard Exact_Enumerated_QUBO_vs_Simulated_Annealing: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_Genetic_Algorithm: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_RF_topK: 0.455
+    Jaccard Exact_Enumerated_QUBO_vs_ET_topK: 0.600
+    Jaccard Exact_Enumerated_QUBO_vs_QAOA_Simulado: 1.000
+    Jaccard Simulated_Annealing_vs_QAOA_Simulado: 1.000
+    Jaccard Genetic_Algorithm_vs_QAOA_Simulado: 1.000
+    Jaccard RF_topK_vs_QAOA_Simulado: 0.455
+    Jaccard ET_topK_vs_QAOA_Simulado: 0.600
+ ✅ K=8 concluído e salvo em checkpoint | tempo=5.8 min
+
+============================================================================================
+ 🎯 ALVO DE CARDINALIDADE (soft): K = 9
+============================================================================================
+ 📐 QUBO gerada (penalty_lambda=0.120000) | scale=2.719 | best_size=9 | exact_hit=True
+ 🏆 Exact_Enumerated: R²=0.6429 | size=9 | hash=bea5cbc1a54c97db
+ 🔥 SA: R²=0.6418 | size=9 | hash=bea5cbc1a54c97db
+ 🧬 GA: R²=0.6361 | size=9 | hash=bea5cbc1a54c97db
+ ⚛️ QAOA (DE, warm-starts: RF/ET/Exact) ...
+   ws=RF: R²=0.6532 | size=9 | cost=-10.7307 | depth=34
+   ws=ET: R²=0.6532 | size=9 | cost=-10.7307 | depth=34
+   ws=Exact: R²=0.6361 | size=9 | cost=-10.7340 | depth=34
+ ⚛️ QAOA best: R²=0.6361 | size=9 | cost=-10.7340 | R²_std=0.0099
+ 🔍 LANDSCAPE k=9: gap_abs=0.0033 | near_degenerate | heuristics: converged_all_heuristics
+    Jaccard Exact_Enumerated_QUBO_vs_Simulated_Annealing: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_Genetic_Algorithm: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_RF_topK: 0.500
+    Jaccard Exact_Enumerated_QUBO_vs_ET_topK: 0.500
+    Jaccard Exact_Enumerated_QUBO_vs_QAOA_Simulado: 1.000
+    Jaccard Simulated_Annealing_vs_QAOA_Simulado: 1.000
+    Jaccard Genetic_Algorithm_vs_QAOA_Simulado: 1.000
+    Jaccard RF_topK_vs_QAOA_Simulado: 0.500
+    Jaccard ET_topK_vs_QAOA_Simulado: 0.500
+ ✅ K=9 concluído e salvo em checkpoint | tempo=5.0 min
+
+============================================================================================
+ 🎯 ALVO DE CARDINALIDADE (soft): K = 10
+============================================================================================
+ 📐 QUBO gerada (penalty_lambda=0.145000) | scale=3.434 | best_size=10 | exact_hit=True
+ 🏆 Exact_Enumerated: R²=0.6349 | size=10 | hash=854a3c09ba06014d
+ 🔥 SA: R²=0.6466 | size=10 | hash=854a3c09ba06014d
+ 🧬 GA: R²=0.6481 | size=10 | hash=854a3c09ba06014d
+ ⚛️ QAOA (DE, warm-starts: RF/ET/Exact) ...
+   ws=RF: R²=0.6523 | size=9 | cost=-15.3657 | depth=34
+   ws=ET: R²=0.6372 | size=9 | cost=-15.3368 | depth=34
+   ws=Exact: R²=0.6349 | size=10 | cost=-15.3731 | depth=34
+ ⚛️ QAOA best: R²=0.6349 | size=10 | cost=-15.3731 | R²_std=0.0095
+ 🔍 LANDSCAPE k=10: gap_abs=0.0288 | unique_minimum | heuristics: converged_all_heuristics
+    Jaccard Exact_Enumerated_QUBO_vs_Simulated_Annealing: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_Genetic_Algorithm: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_RF_topK: 0.538
+    Jaccard Exact_Enumerated_QUBO_vs_ET_topK: 0.538
+    Jaccard Exact_Enumerated_QUBO_vs_QAOA_Simulado: 1.000
+    Jaccard Simulated_Annealing_vs_QAOA_Simulado: 1.000
+    Jaccard Genetic_Algorithm_vs_QAOA_Simulado: 1.000
+    Jaccard RF_topK_vs_QAOA_Simulado: 0.538
+    Jaccard ET_topK_vs_QAOA_Simulado: 0.538
+ ✅ K=10 concluído e salvo em checkpoint | tempo=5.4 min
+
+============================================================================================
+ 🎯 ALVO DE CARDINALIDADE (soft): K = 11
+============================================================================================
+ 📐 QUBO gerada (penalty_lambda=0.200000) | scale=4.879 | best_size=11 | exact_hit=True
+ 🏆 Exact_Enumerated: R²=0.6407 | size=11 | hash=8986506ceded87a0
+ 🔥 SA: R²=0.6341 | size=11 | hash=8986506ceded87a0
+ 🧬 GA: R²=0.6377 | size=11 | hash=8986506ceded87a0
+ ⚛️ QAOA (DE, warm-starts: RF/ET/Exact) ...
+   ws=RF: R²=0.6348 | size=11 | cost=-24.8386 | depth=34
+   ws=ET: R²=0.6385 | size=11 | cost=-24.8339 | depth=34
+   ws=Exact: R²=0.6348 | size=11 | cost=-24.8777 | depth=34
+ ⚛️ QAOA best: R²=0.6348 | size=11 | cost=-24.8777 | R²_std=0.0021
+ 🔍 LANDSCAPE k=11: gap_abs=0.0342 | unique_minimum | heuristics: converged_all_heuristics
+    Jaccard Exact_Enumerated_QUBO_vs_Simulated_Annealing: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_Genetic_Algorithm: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_RF_topK: 0.571
+    Jaccard Exact_Enumerated_QUBO_vs_ET_topK: 0.571
+    Jaccard Exact_Enumerated_QUBO_vs_QAOA_Simulado: 1.000
+    Jaccard Simulated_Annealing_vs_QAOA_Simulado: 1.000
+    Jaccard Genetic_Algorithm_vs_QAOA_Simulado: 1.000
+    Jaccard RF_topK_vs_QAOA_Simulado: 0.571
+    Jaccard ET_topK_vs_QAOA_Simulado: 0.571
+ ✅ K=11 concluído e salvo em checkpoint | tempo=6.7 min
+
+============================================================================================
+ 🎯 ALVO DE CARDINALIDADE (soft): K = 12
+============================================================================================
+ 📐 QUBO gerada (penalty_lambda=0.235000) | scale=6.084 | best_size=12 | exact_hit=True
+ 🏆 Exact_Enumerated: R²=0.6409 | size=12 | hash=0b426ab9d05fa58e
+ 🔥 SA: R²=0.6474 | size=12 | hash=0b426ab9d05fa58e
+ 🧬 GA: R²=0.6481 | size=12 | hash=0b426ab9d05fa58e
+ ⚛️ QAOA (DE, warm-starts: RF/ET/Exact) ...
+   ws=RF: R²=0.6320 | size=12 | cost=-34.2848 | depth=34
+   ws=ET: R²=0.6383 | size=12 | cost=-34.2762 | depth=34
+   ws=Exact: R²=0.6320 | size=12 | cost=-34.2848 | depth=34
+ ⚛️ QAOA best: R²=0.6320 | size=12 | cost=-34.2848 | R²_std=0.0036
+ 🔍 LANDSCAPE k=12: gap_abs=0.0086 | near_degenerate | heuristics: converged_all_heuristics
+    Jaccard Exact_Enumerated_QUBO_vs_Simulated_Annealing: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_Genetic_Algorithm: 1.000
+    Jaccard Exact_Enumerated_QUBO_vs_RF_topK: 0.714
+    Jaccard Exact_Enumerated_QUBO_vs_ET_topK: 0.714
+    Jaccard Exact_Enumerated_QUBO_vs_QAOA_Simulado: 1.000
+    Jaccard Simulated_Annealing_vs_QAOA_Simulado: 1.000
+    Jaccard Genetic_Algorithm_vs_QAOA_Simulado: 1.000
+    Jaccard RF_topK_vs_QAOA_Simulado: 0.714
+    Jaccard ET_topK_vs_QAOA_Simulado: 0.714
+ ✅ K=12 concluído e salvo em checkpoint | tempo=6.7 min
+
+============================================================================================
+ 🏁 Ranking exploratório (por R² OOF espacial) — auditoria
+============================================================================================
+               Method  Target_K       R2      RMSE  n_feat      subset_hash
+    Genetic_Algorithm         6 0.659654 21.110967       6 56a13247b18b50b8
+        QAOA_Simulado         6 0.657315 21.183387       6 56a13247b18b50b8
+              RF_topK        12 0.655568 21.237327      12 ea77808857d9d829
+  Simulated_Annealing         7 0.653238 21.309036       7 b7b5b8cb3cb0204b
+  Simulated_Annealing         6 0.652584 21.329130       6 56a13247b18b50b8
+Exact_Enumerated_QUBO         7 0.651931 21.349165       7 b7b5b8cb3cb0204b
+    Genetic_Algorithm         8 0.649137 21.434669       8 9c6b7e3e6fe5f160
+    Genetic_Algorithm        12 0.648070 21.467249      12 0b426ab9d05fa58e
+    Genetic_Algorithm        10 0.648064 21.467421      10 854a3c09ba06014d
+  Simulated_Annealing         8 0.647608 21.481309       8 9c6b7e3e6fe5f160
+    Genetic_Algorithm         7 0.647417 21.487146       7 b7b5b8cb3cb0204b
+  Simulated_Annealing        12 0.647355 21.489036      12 0b426ab9d05fa58e
+        QAOA_Simulado         8 0.647286 21.491122       8 9c6b7e3e6fe5f160
+  Simulated_Annealing        10 0.646602 21.511974      10 854a3c09ba06014d
+              ET_topK        11 0.645787 21.536737      11 9a568d8a563aba34
+Exact_Enumerated_QUBO         6 0.644913 21.563316       6 56a13247b18b50b8
+Exact_Enumerated_QUBO         9 0.642912 21.623988       9 bea5cbc1a54c97db
+              ET_topK        10 0.642580 21.634034      10 efab494b1eb1697b
+  Simulated_Annealing         9 0.641850 21.656118       9 bea5cbc1a54c97db
+Exact_Enumerated_QUBO         8 0.641731 21.659693       8 9c6b7e3e6fe5f160
+
+📋 Ranking completo salvo: /mnt/e/PROJETOS/biomassa_quantum/results/qaoa_ibm_real/script1_ranking_completo.csv
+
+============================================================================================
+ 📊 FEATURE DIAGNOSTICS (importâncias + correlações + R² marginal)
+============================================================================================
+         feature  RF_importance  ET_importance  corr_target_abs  marginal_r2  marginal_r2_norm
+   canopy_height       0.505056       0.345557         0.792407     0.403908          0.272540
+       NDWI_seca       0.106942       0.119884         0.688355     0.177117          0.119511
+    NDVI_RE_seca       0.067270       0.117108         0.663036     0.302686          0.204240
+       NDVI_seca       0.053696       0.097944         0.663036     0.313910          0.211813
+        NBR_seca       0.032590       0.059031         0.638554     0.164973          0.111317
+           HV_dB       0.032264       0.035416         0.356233     0.000000          0.000000
+         B8_seca       0.029875       0.027979         0.204781     0.000000          0.000000
+  mapbiomas_2018       0.029799       0.024983         0.237442     0.110198          0.074357
+        clay_pct       0.027507       0.030261         0.003157     0.000000          0.000000
+        EVI_seca       0.022784       0.037007         0.562707     0.009223          0.006223
+       elevation       0.022062       0.023903         0.040847     0.000000          0.000000
+           slope       0.018805       0.019590         0.017781     0.000000          0.000000
+canopy_height_sd       0.018529       0.021415         0.229429     0.000000          0.000000
+           VH_dB       0.018430       0.020934         0.438415     0.000000          0.000000
+           VV_dB       0.014389       0.018988         0.369389     0.000000          0.000000
+
+📋 Feature diagnostics salvo: /mnt/e/PROJETOS/biomassa_quantum/results/qaoa_ibm_real/script1_feature_diagnostics.csv
+
+============================================================================================
+ 🔍 QUBO LANDSCAPE ANALYSIS (energy gap + convergência heurísticas)
+============================================================================================
+ k_target  energy_gap_abs  energy_gap_rel  landscape_type   convergence_heuristics  n_unique_heuristic_subsets       exact_hash          sa_hash          ga_hash  jaccard_SA_vs_Exact  jaccard_GA_vs_Exact  jaccard_QAOA_vs_Exact
+        4        0.050029        0.035002  unique_minimum converged_all_heuristics                           1 7652510104c58dd3 7652510104c58dd3 7652510104c58dd3                  1.0                  1.0                    1.0
+        5        0.006624        0.004728 near_degenerate converged_all_heuristics                           1 4385a1ecc2b8cea5 4385a1ecc2b8cea5 4385a1ecc2b8cea5                  1.0                  1.0                    1.0
+        6        0.006293        0.003485 near_degenerate converged_all_heuristics                           1 56a13247b18b50b8 56a13247b18b50b8 56a13247b18b50b8                  1.0                  1.0                    1.0
+        7        0.010792        0.003386  unique_minimum converged_all_heuristics                           1 b7b5b8cb3cb0204b b7b5b8cb3cb0204b b7b5b8cb3cb0204b                  1.0                  1.0                    1.0
+        8        0.002409        0.000320 near_degenerate converged_all_heuristics                           1 9c6b7e3e6fe5f160 9c6b7e3e6fe5f160 9c6b7e3e6fe5f160                  1.0                  1.0                    1.0
+        9        0.003331        0.000310 near_degenerate converged_all_heuristics                           1 bea5cbc1a54c97db bea5cbc1a54c97db bea5cbc1a54c97db                  1.0                  1.0                    1.0
+       10        0.028804        0.001874  unique_minimum converged_all_heuristics                           1 854a3c09ba06014d 854a3c09ba06014d 854a3c09ba06014d                  1.0                  1.0                    1.0
+       11        0.034171        0.001374  unique_minimum converged_all_heuristics                           1 8986506ceded87a0 8986506ceded87a0 8986506ceded87a0                  1.0                  1.0                    1.0
+       12        0.008613        0.000251 near_degenerate converged_all_heuristics                           1 0b426ab9d05fa58e 0b426ab9d05fa58e 0b426ab9d05fa58e                  1.0                  1.0                    1.0
+
+📋 QUBO landscape salvo: /mnt/e/PROJETOS/biomassa_quantum/results/qaoa_ibm_real/script1_qubo_landscape.csv
+
+============================================================================================
+ 🧩 DIAGNÓSTICO GLOBAL DO QUBO (resposta para revisores EMS)
+============================================================================================
+  k=4: ✅ MÍNIMO ÚNICO BEM DEFINIDO — SA=GA=Exact convergem, gap>0.01 | gap=0.0500 | same_hash=True
+  k=5: ⚠️  CONVERGÊNCIA COM GAP PEQUENO — mesmo subset, mas energia próxima de soluções alternativas | gap=0.0066 | same_hash=True
+  k=6: ⚠️  CONVERGÊNCIA COM GAP PEQUENO — mesmo subset, mas energia próxima de soluções alternativas | gap=0.0063 | same_hash=True
+  k=7: ✅ MÍNIMO ÚNICO BEM DEFINIDO — SA=GA=Exact convergem, gap>0.01 | gap=0.0108 | same_hash=True
+  k=8: ⚠️  CONVERGÊNCIA COM GAP PEQUENO — mesmo subset, mas energia próxima de soluções alternativas | gap=0.0024 | same_hash=True
+  k=9: ⚠️  CONVERGÊNCIA COM GAP PEQUENO — mesmo subset, mas energia próxima de soluções alternativas | gap=0.0033 | same_hash=True
+  k=10: ✅ MÍNIMO ÚNICO BEM DEFINIDO — SA=GA=Exact convergem, gap>0.01 | gap=0.0288 | same_hash=True
+  k=11: ✅ MÍNIMO ÚNICO BEM DEFINIDO — SA=GA=Exact convergem, gap>0.01 | gap=0.0342 | same_hash=True
+  k=12: ⚠️  CONVERGÊNCIA COM GAP PEQUENO — mesmo subset, mas energia próxima de soluções alternativas | gap=0.0086 | same_hash=True
+
+============================================================================================
+💾 JSON FINAL salvo: /mnt/e/PROJETOS/biomassa_quantum/results/qaoa_ibm_real/qaoa_mega_varredura_justa_resultados.json
+🧩 Checkpoint mantido: /mnt/e/PROJETOS/biomassa_quantum/results/qaoa_ibm_real/qaoa_mega_varredura_justa_resultados.PARTIAL.json
+📋 Ranking CSV:        /mnt/e/PROJETOS/biomassa_quantum/results/qaoa_ibm_real/script1_ranking_completo.csv
+📋 Features CSV:       /mnt/e/PROJETOS/biomassa_quantum/results/qaoa_ibm_real/script1_feature_diagnostics.csv
+📋 Landscape CSV:      /mnt/e/PROJETOS/biomassa_quantum/results/qaoa_ibm_real/script1_qubo_landscape.csv
+⏱️ Tempo total: 55.4 min
+FINALIZADO ✅
+============================================================================================

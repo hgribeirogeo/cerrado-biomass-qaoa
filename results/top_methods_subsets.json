@@ -1,0 +1,67 @@
+{
+  "top_methods": [
+    {
+      "method": "Genetic_Algorithm_k6",
+      "n_features": 6,
+      "subset_hash": "0c38ec0f34aefdd4",
+      "features": [
+        "canopy_height",
+        "clay_pct",
+        "NDVI_seca",
+        "NDWI_seca",
+        "NDVI_RE_seca",
+        "HV_dB"
+      ]
+    },
+    {
+      "method": "QAOA_Simulado_k6",
+      "n_features": 6,
+      "subset_hash": "0c38ec0f34aefdd4",
+      "features": [
+        "canopy_height",
+        "clay_pct",
+        "NDVI_seca",
+        "NDWI_seca",
+        "NDVI_RE_seca",
+        "HV_dB"
+      ]
+    },
+    {
+      "method": "Exact_Enumerated_QUBO_k7",
+      "n_features": 7,
+      "subset_hash": "57145cdddd6d1892",
+      "features": [
+        "canopy_height",
+        "clay_pct",
+        "slope",
+        "NDVI_seca",
+        "NDWI_seca",
+        "NDVI_RE_seca",
+        "HV_dB"
+      ]
+    }
+  ],
+  "pairwise_jaccard": [
+    {
+      "pair": [
+        "Genetic_Algorithm_k6",
+        "QAOA_Simulado_k6"
+      ],
+      "jaccard": 1.0
+    },
+    {
+      "pair": [
+        "Genetic_Algorithm_k6",
+        "Exact_Enumerated_QUBO_k7"
+      ],
+      "jaccard": 0.8571428571428571
+    },
+    {
+      "pair": [
+        "QAOA_Simulado_k6",
+        "Exact_Enumerated_QUBO_k7"
+      ],
+      "jaccard": 0.8571428571428571
+    }
+  ]
+}

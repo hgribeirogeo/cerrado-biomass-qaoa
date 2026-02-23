@@ -1,0 +1,4 @@
+method,count,pct
+Genetic_Algorithm_k6,12,48.0
+QAOA_Simulado_k6,10,40.0
+Exact_Enumerated_QUBO_k7,3,12.0

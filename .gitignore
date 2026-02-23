@@ -1,0 +1,72 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Data (large files - adjust as needed)
+# Uncomment to ignore large data files
+# data/raw/
+# *.tif
+# *.geotiff
+
+# Results (optional - may want to track)
+# results/*.png
+# results/*.pdf
+
+# Temporary files
+*.tmp
+*.log
+*.cache
+
+# Google Earth Engine credentials
+.config/earthengine/
+credentials
+
+# IBM Quantum credentials  
+.qiskit/
+qiskitrc.json

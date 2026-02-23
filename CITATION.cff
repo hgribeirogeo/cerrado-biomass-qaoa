@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "YourLastName"
+    given-names: "YourFirstName"
+    orcid: "https://orcid.org/0000-0000-0000-0000"
+    affiliation: "Your Institution"
+title: "Quantum-Inspired Feature Selection for Cerrado Biomass Estimation"
+version: 1.0.0
+date-released: 2026-02-23
+url: "https://github.com/yourusername/cerrado-biomass-qaoa"
+repository-code: "https://github.com/yourusername/cerrado-biomass-qaoa"
+keywords:
+  - quantum computing
+  - QAOA
+  - feature selection
+  - biomass estimation
+  - remote sensing
+  - Cerrado
+  - tropical savanna
+  - QUBO optimization
+license: MIT
+preferred-citation:
+  type: article
+  authors:
+    - family-names: "YourLastName"
+      given-names: "YourFirstName"
+  title: "Quantum-inspired feature selection for Cerrado aboveground biomass estimation: QUBO formulation with rigorous spatial validation"
+  journal: "Environmental Modelling & Software"
+  year: 2026
+  status: "in preparation"

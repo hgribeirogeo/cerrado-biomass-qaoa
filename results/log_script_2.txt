@@ -1,0 +1,109 @@
+==============================================================================
+   ENSEMBLE BIOMASSA — SCRIPT 2 EMS-SPATIAL v2.5 (GRID + LO-MRO + Figures)
+==============================================================================
+   [XGB] GPU detectada via nvidia-smi: NVIDIA GeForce RTX 3060 → device='cuda'
+
+🔍 Analisando resultados da Mega-Varredura Justa...
+
+📌 Subsets carregados:
+   - Genetic_Algorithm_k6: 6 feats | hash=0c38ec0f34aefdd4
+   - QAOA_Simulado_k6: 6 feats | hash=0c38ec0f34aefdd4
+   - Exact_Enumerated_QUBO_k7: 7 feats | hash=57145cdddd6d1892
+   - Simulated_Annealing_k7: 7 feats | hash=57145cdddd6d1892
+   - ET_topK_k11: 11 feats | hash=39d2d3951b50de42
+   - RF_topK_k12: 12 feats | hash=c6849d081c094f19
+
+📂 Carregando dados (veg-only)...
+   Base veg: n=290 | y̅=44.2 ± 36.2 Mg/ha
+
+🧱 Criando GRID blocks contíguos para CV...
+   -> Grid: nx=4, ny=3 | blocos: {0: 28, 1: 7, 2: 15, 3: 4, 4: 16, 5: 21, 6: 39, 7: 17, 9: 16, 10: 49, 11: 78}
+
+🌍 Criando macro-regiões contíguas (LO-MRO)...
+   -> Macro grid: nx=5, ny=1 | regiões: {0: 34, 1: 39, 2: 44, 3: 127, 4: 46}
+
+   ✅ 6 métodos válidos (df + BAND_NAMES)
+
+==============================================================================
+🔒 NESTED CV — GroupKFold GRID blocks (outer repeats + inner)
+==============================================================================
+   Outer folds: 25/25
+
+✅ Nested CV concluído.
+📋 Métodos (outer OOF): /mnt/e/PROJETOS/biomassa_quantum/results/ensemble_nestedcv_subsets_ems_spatial_v2_5/nestedcv_methodwise_metrics.csv
+📊 Gerando figuras OOF...
+
+==============================================================================
+RESULTADO NESTED CV — SELECTOR — EMS SPATIAL GRID
+==============================================================================
+Selector OOF: R²=0.6320 | RMSE=21.95 | Bias=-0.39 | Slope=0.642
+                  method  count  pct
+    Genetic_Algorithm_k6     19 76.0
+        QAOA_Simulado_k6      3 12.0
+Exact_Enumerated_QUBO_k7      2  8.0
+  Simulated_Annealing_k7      1  4.0
+
+==============================================================================
+🔬 SENSIBILIDADE: RF solo vs Stacking Ensemble
+==============================================================================
+   RMSE RF solo:   20.847 Mg/ha
+   RMSE Ensemble:  21.601 Mg/ha
+   ΔRMSE (RF−Ens): -0.754 Mg/ha (positivo = ensemble melhor)
+   Wilcoxon (H₀: RF≥Ensemble): stat=39.0, p=0.9998
+   → Diferença não significativa — complexidade do stacking questionável
+
+==============================================================================
+🏆 RANKING FINAL (outer OOF) — EMS SPATIAL GRID v2.5
+==============================================================================
+                  method  outer_oof_r2   r2_std  outer_oof_rmse  rmse_std  outer_oof_bias  n_features      subset_hash
+    Genetic_Algorithm_k6      0.637223 0.104296       21.795555  3.342772       -0.228206           6 0c38ec0f34aefdd4
+        QAOA_Simulado_k6      0.637223 0.104296       21.795555  3.342772       -0.228206           6 0c38ec0f34aefdd4
+Exact_Enumerated_QUBO_k7      0.624878 0.086422       22.163299  3.456196       -0.572800           7 57145cdddd6d1892
+  Simulated_Annealing_k7      0.624878 0.086422       22.163299  3.456196       -0.572800           7 57145cdddd6d1892
+             RF_topK_k12      0.605604 0.076416       22.725551  3.465840       -0.870145          12 c6849d081c094f19
+             ET_topK_k11      0.586216 0.064933       23.277406  3.938688       -0.791808          11 39d2d3951b50de42
+
+BEST GLOBAL: Genetic_Algorithm_k6 | R²=0.6372 (±0.1043) | RMSE=21.80 (±3.34)
+Features: ['canopy_height', 'clay_pct', 'NDVI_seca', 'NDWI_seca', 'NDVI_RE_seca', 'HV_dB']
+
+==============================================================================
+🔥 LO-MRO — Leave-One-MacroRegion-Out (macro-grid contíguo)
+==============================================================================
+   macro=0 | n=34 | R²=0.604 | RMSE=19.94 | Bias=+1.76 | Slope=0.707
+   macro=1 | n=39 | R²=0.473 | RMSE=22.75 | Bias=-1.75 | Slope=0.505
+   macro=2 | n=44 | R²=0.314 | RMSE=25.81 | Bias=-1.21 | Slope=0.567
+   macro=3 | n=127 | R²=0.717 | RMSE=22.07 | Bias=+0.92 | Slope=0.644
+   macro=4 | n=46 | R²=0.719 | RMSE=14.17 | Bias=+2.38 | Slope=0.705
+------------------------------------------------------------------------------
+LO-MRO ponderado: R²=0.6100 | RMSE=21.23 | Bias=+0.57 | Slope=0.631
+
+==============================================================================
+🏋️  TREINO FINAL (ALL VEG) + MAPA — Genetic_Algorithm_k6 | modelo: RF
+==============================================================================
+   Modelo final: RandomForestRegressor (n_estimators=300) — sem meta-learner
+Bandas: {'canopy_height': 20, 'clay_pct': 19, 'NDVI_seca': 7, 'NDWI_seca': 8, 'NDVI_RE_seca': 10, 'HV_dB': 17}
+Raster: 8460×7904px | bandas=21 | blocos=1054
+Bloco 1054/1054 (100%)
+✅ Biomassa:  /mnt/e/PROJETOS/biomassa_quantum/results/ensemble_nestedcv_subsets_ems_spatial_v2_5/goias_biomassa_Genetic_Algorithm_k6_100m.tif
+✅ Incerteza: /mnt/e/PROJETOS/biomassa_quantum/results/ensemble_nestedcv_subsets_ems_spatial_v2_5/goias_incerteza_Genetic_Algorithm_k6_100m.tif
+
+==============================================================================
+CONCLUÍDO — EMS SPATIAL GRID v2.5
+==============================================================================
+JSON subsets (S1):  /mnt/e/PROJETOS/biomassa_quantum/results/qaoa_ibm_real/qaoa_mega_varredura_justa_resultados.json
+CSV métodos OOF:    /mnt/e/PROJETOS/biomassa_quantum/results/ensemble_nestedcv_subsets_ems_spatial_v2_5/nestedcv_methodwise_metrics.csv
+CSV selector folds: /mnt/e/PROJETOS/biomassa_quantum/results/ensemble_nestedcv_subsets_ems_spatial_v2_5/nestedcv_selector_metrics.csv
+CSV freq seleção:   /mnt/e/PROJETOS/biomassa_quantum/results/ensemble_nestedcv_subsets_ems_spatial_v2_5/nestedcv_selection_frequencies.csv
+CSV sensibilidade:  /mnt/e/PROJETOS/biomassa_quantum/results/ensemble_nestedcv_subsets_ems_spatial_v2_5/sensitivity_rf_vs_ensemble.csv
+JSON best global:   /mnt/e/PROJETOS/biomassa_quantum/results/ensemble_nestedcv_subsets_ems_spatial_v2_5/best_global_subset.json
+JSON top-3:         /mnt/e/PROJETOS/biomassa_quantum/results/ensemble_nestedcv_subsets_ems_spatial_v2_5/top_methods_subsets.json
+CSV LO-MRO:         /mnt/e/PROJETOS/biomassa_quantum/results/ensemble_nestedcv_subsets_ems_spatial_v2_5/lomro_bestglobal_metrics.csv
+CSV LO-MRO raw:     /mnt/e/PROJETOS/biomassa_quantum/results/ensemble_nestedcv_subsets_ems_spatial_v2_5/lomro_predictions_raw.csv
+Figures dir:        /mnt/e/PROJETOS/biomassa_quantum/results/ensemble_nestedcv_subsets_ems_spatial_v2_5/figures
+  fig_oof_scatter_<method>.png       (um por método)
+  fig_r2_boxplot.png                 (variância inter-fold)
+  fig_calibration_residuals_selector.png
+  fig_calibration_residuals_lomro.png
+  fig_lomro_scatter.png              (subplots por macro-região)
+  fig_sensitivity_rf_vs_ensemble.png
+==============================================================================

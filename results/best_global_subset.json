@@ -1,0 +1,49 @@
+{
+  "best_global_method": "QAOA_Simulado_k6",
+  "criterion": "max outer_oof_r2; tie -> min outer_oof_rmse",
+  "best_global_metrics": {
+    "outer_oof_r2": 0.6372228534648853,
+    "outer_oof_rmse": 21.79555459294196,
+    "outer_oof_mae": 16.3797014928863,
+    "outer_oof_bias": -0.22820578042737033,
+    "outer_oof_slope": 0.6477104385852446,
+    "r2_std_folds": 0.1042963154121227,
+    "rmse_std_folds": 3.342771643808236
+  },
+  "features": [
+    "canopy_height",
+    "clay_pct",
+    "NDVI_seca",
+    "NDWI_seca",
+    "NDVI_RE_seca",
+    "HV_dB"
+  ],
+  "n_features": 6,
+  "subset_hash": "0c38ec0f34aefdd4",
+  "classes_vegetacao": [
+    3,
+    4,
+    5,
+    6,
+    11,
+    12,
+    29,
+    32,
+    49,
+    50
+  ],
+  "outer_cv": {
+    "splits": 5,
+    "repeats": 5,
+    "type": "GroupKFold(grid_spatial_block)"
+  },
+  "inner_cv": {
+    "splits": 5,
+    "type": "GroupKFold(grid_spatial_block)"
+  },
+  "grid_blocks": {
+    "nx": 4,
+    "ny": 3
+  },
+  "loaded_from_json": "/mnt/e/PROJETOS/biomassa_quantum/results/qaoa_ibm_real/qaoa_mega_varredura_justa_resultados.json"
+}
